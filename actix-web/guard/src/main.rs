@@ -63,13 +63,13 @@ async fn increase_default(data: web::Data<AppState>) -> String {
 
 async fn decrease_admin(data: web::Data<AppState>) -> String {
     let mut counter = data.counter.lock().unwrap();
-    *counter += 2;
+    *counter -= 2;
     format!("counter value: {counter}")
 }
 
 async fn decrease_user(data: web::Data<AppState>) -> String {
     let mut counter = data.counter.lock().unwrap();
-    *counter += 1;
+    *counter -= 1;
     format!("counter value: {counter}")
 }
 
